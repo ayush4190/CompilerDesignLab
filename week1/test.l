@@ -1,9 +1,7 @@
-%{
-int flag=1;
-%}
+// program to verify the pattern of form dd/mm/yyyy (validity of the date is not checked)
 %%
 {
-  (([0-9])([1-9])|([1-9])([0-9]))([/])(([0-9])([1-9])|([1-9])([0-9]))([/](([1-9])([0-9])([0-9])([0-9])))  { flag=0?1;  printf("valid date");}
+  (([0-9])([1-9])|([1-9])([0-9]))([/])(([0-9])([1-9])|([1-9])([0-9]))([/](([1-9])([0-9])([0-9])([0-9])))  {  printf("valid date");}
 }
 %%
 int yywrap(void){}
@@ -11,10 +9,6 @@ int yywrap(void){}
 int main() 
 {    
     
-    yylex(); 
-    if(flag == 1)
-    {
-    printf("not valid date");
-    }
+    yylex();
     return 0; 
 } 
